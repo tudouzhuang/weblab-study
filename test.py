@@ -1,12 +1,37 @@
-def insert_into_all(item, nested_list):
-    """Return a new list consisting of all the lists in nested_list,
-    but with item added to the front of each. You can assume that
-     nested_list is a list of lists.
+#测试一下        用python做一个对输入数组进行冒泡排序的程序，并且把数组内容存在本地
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
 
-    >>> nl = [[], [1, 2], [3]]
-    >>> insert_into_all(0, nl)
-    [[0], [0, 1, 2], [0, 3]]
-    """
-    "*** YOUR CODE HERE ***"
-    for element in nested_list:
-        element.insert(0,item)
+
+def read_array_from_file(filename):
+    with open(filename, "r") as file:
+        content = file.read()
+        array = list(map(int, content.strip().split()))
+    return array
+
+
+def write_array_to_file(filename, array):
+    with open(filename, "w") as file:
+        file.write(" ".join(map(str, array)))
+
+
+if __name__ == "__main__":
+    input_filename = "test-data.txt"
+    # 读取数组
+    try:
+        array = read_array_from_file(input_filename)
+        print("成功打开文件，读取到的数组:", array)
+    except FileNotFoundError:
+        print("文件不存在，请确认文件路径")
+        array = []
+
+    if array:
+        sorted_array = bubble_sort(array)
+        print("排序后的数组:", sorted_array)
+        write_array_to_file(input_filename, sorted_array)
+        print("排序后的数组已保存到文件:", input_filename)
