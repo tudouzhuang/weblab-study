@@ -19,6 +19,20 @@ def write_array_to_file(filename, array):
     with open(filename, "w") as file:
         file.write(" ".join(map(str, array)))
 
+def input_data(array):
+    print("请输入要添加的数以及位置")
+    num = int(input("数: "))
+    place = int(input("位置: "))
+    
+    if place > len(array) + 1 or place < 1:
+        print("位置超出范围")
+        return array
+
+    array.insert(place - 1, num)
+    return array
+
+
+
 
 if __name__ == "__main__":
     input_filename = "test-data.txt"
@@ -31,6 +45,8 @@ if __name__ == "__main__":
         array = []
 
     if array:
+        input_data(array)
+        print("排序前的数组:", array)
         sorted_array = bubble_sort(array)
         print("排序后的数组:", sorted_array)
         write_array_to_file(input_filename, sorted_array)
