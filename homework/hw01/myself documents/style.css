@@ -1,0 +1,33 @@
+  .suse-headline {
+    font-family: 'SUSE', sans-serif;
+    font-weight: 400; /* 根据需要调整字体粗细 */
+  }
+  
+  /* 使用 Playwrite CU 字体 */
+  .playwrite-text {
+    font-family: 'Playwrite CU', sans-serif;
+    font-weight: 300; /* 根据需要调整字体粗细 */
+  }
+
+  .deleted_text {
+    opacity: 0.3;
+    text-decoration: line-through;
+  }
+
+/* 容器样式，使用 Flexbox 布局 */
+.container {
+    display: flex;
+    align-items: center; /* 垂直居中对齐 */
+  }
+  
+  /* 删除线文本样式 */
+  .deleted_text {
+    font-size: 16px; /* 可以根据需要调整 */
+    color: #ff4500; /* 可以根据需要调整 */
+    text-decoration: line-through; /* 添加删除线 */
+  }
+  
+  /* 删除按钮样式 */
+  .delete-button {
+    margin-left: 10px; /* 添加左侧间距 */
+  }
